@@ -15,7 +15,7 @@ namespace Studyrecord.Controllers
             OpintopäiväkirjaContext db = new OpintopäiväkirjaContext();
         
 
-        // GET: Topics
+       
         public async Task<IActionResult> Index()
         {
             return View(await db.Topic.ToListAsync());
@@ -40,33 +40,13 @@ namespace Studyrecord.Controllers
             }
         }
 
-        // GET: Topics/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var topic = await db.Topic
-                .FirstOrDefaultAsync(m => m.TopicId == id);
-            if (topic == null)
-            {
-                return NotFound();
-            }
-
-            return View(topic);
-        }
-
-        // GET: Topics/Create
+     
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Topics/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TopicId,Title,Description,Estimatedtime,TimeSpent,Source,Start,InProgress,CompletionDate")] Topic topic)
@@ -96,9 +76,7 @@ namespace Studyrecord.Controllers
             return View(topic);
         }
 
-        // POST: Topics/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("TopicId,Title,Description,Estimatedtime,TimeSpent,Source,Start,InProgress,CompletionDate")] Topic topic)
@@ -131,7 +109,7 @@ namespace Studyrecord.Controllers
             return View(topic);
         }
 
-        // GET: Topics/Delete/5
+      
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -149,7 +127,6 @@ namespace Studyrecord.Controllers
             return View(topic);
         }
 
-        // POST: Topics/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

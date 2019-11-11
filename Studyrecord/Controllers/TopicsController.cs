@@ -13,9 +13,7 @@ namespace Studyrecord.Controllers
     {
         
             OpintopäiväkirjaContext db = new OpintopäiväkirjaContext();
-        
-
-       
+    
         public async Task<IActionResult> Index()
         {
             return View(await db.Topic.ToListAsync());
@@ -33,7 +31,6 @@ namespace Studyrecord.Controllers
             }
 
 
-            
             catch
             {
                 return View("Error", new ErrorViewModel());
@@ -60,7 +57,6 @@ namespace Studyrecord.Controllers
             return View(topic);
         }
 
-        // GET: Topics/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)

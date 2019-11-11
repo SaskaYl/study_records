@@ -1,0 +1,13 @@
+﻿@model List<Studyrecord.Models.Topic>
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+<p>@Html.ActionLink("Show all topics", "Index", "Topics", null, new { @class = "someClass" })</p>
+<p>@Html.ActionLink("Show aktive topics", "Show", "Home", null, new{ @class = "someClass" })</p>
+
+<div class="text-center">
+    <h1 class="display-4">WELCOME TO HELL</h1>
+
+</div>
+<p>@Html.ActionLink("Search from Topics", "Search", "Home")</p>
